@@ -1,0 +1,97 @@
+public class Solution {
+    public String intToRoman(int num) {
+        StringBuilder roman = new StringBuilder();
+        int m;
+        int cm;
+        int d;
+        int cd;
+        int c;
+        int xc;
+        int l;
+        int xl;
+        int x;
+        int ix;
+        int v;
+        int iv;
+        int i;
+        
+        m = num/1000;
+        num = num % 1000;
+        cm = num / 900;
+        num = num % 900;
+        d = num / 500;
+        num = num % 500;
+        cd = num / 400;
+        num = num % 400;
+        c = num / 100;
+        num = num % 100;
+        xc = num / 90;
+        num = num % 90;
+        l = num / 50;
+        num = num % 50;
+        xl = num / 40;
+        num = num % 40;
+        x = num / 10;
+        num = num % 10;
+        ix = num / 9;
+        num = num % 9;
+        v = num / 5;
+        num = num % 5;
+        iv = num / 4;
+        num = num % 4;
+        i = num;
+        
+        for(int cnt = 0; cnt < m; cnt++){
+            roman.append("M");
+        }
+        
+        for(int cnt = 0; cnt < cm; cnt++){
+            roman.append("CM");
+        }
+        
+        for(int cnt = 0; cnt < d; cnt++){
+            roman.append("D");
+        }
+        
+        for(int cnt = 0; cnt < cd; cnt++){
+            roman.append("CD");
+        }
+        
+        for(int cnt = 0; cnt < c; cnt++){
+            roman.append("C");
+        }
+        
+        for(int cnt = 0; cnt < xc; cnt++){
+            roman.append("XC");
+        }
+        
+        for(int cnt = 0; cnt < l; cnt++){
+           roman.append("L");
+        }
+        
+        for(int cnt = 0; cnt < xl; cnt++){
+            roman.append("XL");
+        }
+        
+        for(int cnt = 0; cnt < x; cnt++){
+            roman.append("X");
+        }
+        
+        for(int cnt = 0; cnt < ix; cnt++){
+            roman.append("IX");
+        }
+        
+        for(int cnt = 0; cnt < v; cnt++){
+            roman.append("V");
+        }
+        
+        for(int cnt = 0; cnt < iv; cnt++){
+            roman.append("IV");
+        }
+        
+        for(int cnt = 0; cnt < i; cnt++){
+            roman.append("I");
+        }
+        return roman.toString();
+    }
+}
