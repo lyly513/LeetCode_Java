@@ -1,0 +1,25 @@
+public class Solution {
+    public List<String> letterCombinations(String digits) {
+        int len = digits.length();
+        List<String> res = new ArrayList();
+        String digitletter[] = {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+    
+        if (digits.length()==0) 
+            return res;
+        res.add("");   
+        for(int i=0;i<len;i++){
+            res = combine(digitletter[digits.charAt(i)-'0'], res);
+        }
+        return res;
+    }
+    
+    public List<String> combine(String s, List<String> res){
+        List<String> result = new ArrayList();
+        for(int i=0;i<s.length();i++){
+            for(String str : res){
+                result.add(str+s.charAt(i));
+            }
+        }
+        return result;
+    }
+}
