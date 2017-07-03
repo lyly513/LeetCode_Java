@@ -1,0 +1,67 @@
+public class Solution {
+    String[] tuple = {"Zero", "One ", "Two ", "Three ", "Four ", "Five ", "Six ", "Seven ", "Eight ", "Nine "};
+    String[] tupleTn = {"Zero ", "One ", "Twenty ", "Thirty ", "Forty ", "Fifty ", "Sixty ", "Seventy ", "Eighty ", "Ninety "};
+    String[] tupleTeen = {"Ten ", "Eleven ", "Twelve ", "Thirteen ", "Fourteen ", "Fifteen ", "Sixteen ", "Seventeen ", "Eighteen ", "Nineteen "};
+    
+    public String numberToWords(int num) {
+        String res = "";
+        int b = 0;
+        int m = 0;
+        int t = 0;
+        
+        //zero
+        if(num == 0){
+            return tuple[0];
+        }
+        //billion
+        b = num / 1000000000;
+        if(b>0){
+            res+= tuple[b] + "Billion ";
+        }
+        num %= 1000000000;
+        //million
+        m = num / 1000000;
+        if(m>0){
+            res+= withinHundred(m) + "Million " ;
+        }
+        num %= 1000000;
+        //thousand
+        t = num / 1000;
+        if(t>0){
+            res += withinHundred(t) + "Thousand ";
+        }
+        num %= 1000;
+        //rest
+        res += withinHundred(num);
+        //return
+        if(res.charAt(res.length()-1)==' ')
+            res = res.substring(0,res.length()-1);
+        return res;
+        
+    }
+    
+    public String withinHundred(int num){
+        String res = "";
+        int h = num / 100;
+        num %= 100;
+        int tn = num / 10;
+        num %= 10;
+        
+        
+        if(h>0){
+            res += tuple[h] + "Hundred ";
+        }
+        if(tn>1){
+            if(num == 0){
+                res += tupleTn[tn];
+            }else
+                res += tupleTn[tn] + tuple[num];
+        }else if (tn==1){
+            res += tupleTeen[num];
+        }else{
+            if(num!=0)
+                res += tuple[num];
+        }
+        return res;
+    }
+}
