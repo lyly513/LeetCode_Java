@@ -17,3 +17,5 @@ public class Solution {
         return maxlength;
     }
 }
+
+//the core of this solution is to store each sum and check if the difference equals k. 
